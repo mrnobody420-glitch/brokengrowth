@@ -1,1 +1,53 @@
-PASTE_THE_HTML_ABOVE_VERBATIM
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Broken Growth Ministries | Hope for Pensacola’s Homeless</title>
+  <meta name="description" content="Broken Growth Ministries - founded by Tim - is bringing hope and transformation to Pensacola’s homeless through compassion, community, and faith." />
+  <meta property="og:title" content="Broken Growth Ministries" />
+  <meta property="og:description" content="Help Tim and Broken Growth Ministries bring hope to Pensacola’s homeless. Every small act of giving can save a life." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3448/3448720.png" type="image/png" />
+  <style>
+    body {font-family: "Segoe UI", Roboto, Arial, sans-serif; background-color:#f5f7f9; margin:0; color:#333;}
+    header {background:linear-gradient(135deg,#0b132b,#1c2541,#3a506b);color:white;text-align:center;padding:60px 20px;}
+    header h1{font-size:2.6em;margin:0;letter-spacing:1px;} header p{font-size:1.2em;margin-top:10px;opacity:0.9;}
+    section{max-width:900px;margin:40px auto;padding:20px;background:white;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.1);}
+    h2{color:#1c2541;border-left:5px solid #3a506b;padding-left:10px;}
+    .hero-image{width:100%;border-radius:12px;margin:20px 0;}
+    .donate-button{display:inline-block;background:#0070ba;color:white;padding:15px 25px;text-decoration:none;border-radius:6px;font-size:1.2em;transition:0.2s ease-in-out;}
+    .donate-button:hover{background:#005c95;}
+    .goal-tracker{margin-top:20px;padding:15px;background:#f0f4f8;border-radius:8px;}
+    .progress{background:#e0e0e0;border-radius:5px;height:16px;overflow:hidden;margin-top:5px;}
+    .bar{background:#0070ba;height:100%;width:0%;transition:width 1s ease-in-out;}
+    footer{text-align:center;padding:30px 10px;background:#1c2541;color:white;margin-top:40px;}
+    footer a{color:#5bc0be;text-decoration:none;} footer a:hover{text-decoration:underline;}
+  </style>
+</head>
+<body>
+<header>
+  <h1>Broken Growth Ministries</h1>
+  <p>Founded by Tim - breaking the cycle of homelessness and despair in Pensacola, one life at a time.</p>
+</header>
+<section>
+  <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=1350&q=80" class="hero-image" alt="Helping Hands"/>
+  <h2>Our Mission</h2>
+  <p>In Pensacola, too many good people are trapped in a cycle of homelessness, addiction, and broken systems. <strong>Broken Growth Ministries</strong> exists to give them what they deserve - compassion, dignity, and a path home. This ministry was born from lived experience. Tim, once homeless himself, now works to break that same cycle for others.</p>
+  <h2>How You Can Help</h2>
+  <p>Every dollar you give feeds, clothes, and shelters someone who needs a second chance. It’s not just a donation - it’s hope. Your support helps fund direct outreach, supplies, and safe transition housing. Together, we can make sure that <em>no one is forgotten.</em></p>
+  <div style="text-align:center; margin:30px 0;">
+    <a class="donate-button" href="https://www.paypal.com/donate/?hosted_button_id=7B33SKHE49TPA" target="_blank">Donate via PayPal</a>
+    <p style="margin-top:10px; font-size:14px; color:#555;">or visit directly:<br><a href="https://www.paypal.com/donate/?hosted_button_id=7B33SKHE49TPA" target="_blank">https://www.paypal.com/donate/?hosted_button_id=7B33SKHE49TPA</a></p>
+  </div>
+  <div class="goal-tracker"><span class="pill">Tonight Matters</span><div class="progress"><div class="bar" id="goalBar"></div></div><div id="goalText" style="margin-top:5px;font-size:0.9em;color:#333;">Loading goal tracker...</div></div>
+</section>
+<footer>
+  <p>© <script>document.write(new Date().getFullYear())</script> Broken Growth Ministries - Founded by Tim</p>
+  <p>Faith | Compassion | Renewal<br>Follow our mission on <a href="https://facebook.com" target="_blank">Facebook</a></p>
+</footer>
+<script>
+async function persistentGoalTracker(){try{const baseURL='https://api.countapi.xyz';const now=new Date();const weekKey='week_'+now.getFullYear()+'_'+Math.ceil(now.getDate()/7);const namespace='brokengrowth_ministry_goal';const target=50;await fetch(`${baseURL}/create?namespace=${namespace}&key=${weekKey}&value=0&update_lower_bound=0`);async function getCount(){let res=await fetch(`${baseURL}/get/${namespace}/${weekKey}`);let j=await res.json();return j.value||j.count||0;}async function addClick(){await fetch(`${baseURL}/hit/${namespace}/${weekKey}`,{method:'POST'});updateProgress();}async function updateProgress(){const count=await getCount();const pct=Math.min(100,Math.round((count/target)*100));const bar=document.getElementById('goalBar');const text=document.getElementById('goalText');if(bar){bar.style.width=pct+'%';}if(text){text.textContent=pct+`% of this week's goal met (${count}/${target})`;}}updateProgress();document.querySelectorAll('a[href*="paypal.com"]').forEach(btn=>{btn.addEventListener('click',addClick);});}catch(e){console.error('Goal tracker error:',e);}}document.addEventListener('DOMContentLoaded',persistentGoalTracker);
+</script>
+</body>
+</html>
