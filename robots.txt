@@ -1,0 +1,3 @@
+﻿User-agent: *
+Allow: /
+Sitemap: https://mrnobody420-glitch.github.io/brokengrowth/sitemap.xml
