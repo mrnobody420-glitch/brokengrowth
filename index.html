@@ -8,19 +8,39 @@
 <style>
 body { font-family: Arial, sans-serif; background:#f4f4f4; margin:0; padding:0; }
 
-.pulse-bar {
-  width:100%; height:5px;
-  background:linear-gradient(90deg,#005eff,#00a2ff,#00ffd0);
-  animation:pulse 3s infinite linear;
+.top-scripture {
+  background:#003cb5;
+  color:white;
+  text-align:center;
+  padding:10px;
+  font-size:18px;
+  animation:fadeIn 2s ease-in-out;
 }
-@keyframes pulse { from {background-position:0;} to {background-position:200%;} }
+@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+
+.daily-encourage {
+  background:#eef5ff;
+  border-left:6px solid #005eff;
+  padding:15px;
+  margin:20px auto;
+  max-width:900px;
+  border-radius:10px;
+  font-size:18px;
+  color:#333;
+  animation:pulseGlow 4s infinite;
+}
+@keyframes pulseGlow {
+  0% { box-shadow:0 0 0 rgba(0,0,0,0); }
+  50% { box-shadow:0 0 12px rgba(0,94,255,.35); }
+  100% { box-shadow:0 0 0 rgba(0,0,0,0); }
+}
 
 header {
-  background:url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1350&q=80') center/cover;
+  background:url('https://images.unsplash.com/photo-1493836512294-502baa1986e2?auto=format&fit=crop&w=1350&q=80') center/cover;
   padding:90px 20px; color:white; text-shadow:0 2px 6px rgba(0,0,0,.35);
 }
-header h1 { font-size:48px; text-align:center; margin:0; }
-header p { font-size:22px; text-align:center; max-width:720px; margin:25px auto; }
+header h1 { font-size:48px; margin:0; text-align:center; }
+header p { font-size:22px; max-width:720px; margin:20px auto; text-align:center; }
 
 .container {
   max-width:900px;
@@ -31,133 +51,110 @@ header p { font-size:22px; text-align:center; max-width:720px; margin:25px auto;
   box-shadow:0 0 15px rgba(0,0,0,0.15);
 }
 
-.hero-slider img {
-  width:100%;
-  border-radius:14px;
-  display:none;
-}
-.hero-slider img.active { display:block; }
-
-.testimonial {
-  padding:20px;
-  background:#f8f8f8;
-  border-left:5px solid #005eff;
+.faces-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:10px;
   margin:20px 0;
-  border-radius:6px;
 }
-.testimonial.hidden { display:none; }
+.faces-grid img {
+  width:100%;
+  border-radius:10px;
+  filter:brightness(.92);
+  transition:0.3s;
+}
+.faces-grid img:hover {
+  filter:brightness(1.1);
+}
 
 .btn {
-  display:block;
-  text-align:center;
-  background:#005eff;
-  color:white;
-  padding:15px;
-  margin:25px auto;
-  border-radius:10px;
-  text-decoration:none;
-  font-size:22px;
-  width:70%;
+  display:block; text-align:center; background:#005eff; color:white;
+  padding:15px; margin:25px auto; border-radius:10px;
+  text-decoration:none; font-size:22px; width:70%;
 }
 .btn:hover { background:#003cb5; }
 
-.counter-box {
-  background:#eef5ff;
-  padding:20px;
-  border-radius:12px;
-  text-align:center;
-  margin:25px 0;
-}
-.counter-number {
-  font-size:40px;
-  font-weight:bold;
-  color:#005eff;
-}
 </style>
 
 <script>
 // ------------------------------
-// Volunteer Photo Slider
+// DAILY SCRIPTURE ROTATION
 // ------------------------------
-let slideIndex = 0;
-function rotateSlides() {
-  const slides = document.querySelectorAll(".hero-slider img");
-  slides.forEach(s => s.classList.remove("active"));
-  slides[slideIndex].classList.add("active");
-  slideIndex = (slideIndex + 1) % slides.length;
-}
-setInterval(rotateSlides, 4500);
+const verses = [
+  "‘For I know the plans I have for you,’ declares the Lord – Jeremiah 29:11",
+  "The Lord is close to the brokenhearted. – Psalm 34:18",
+  "Do not grow weary in doing good. – Galatians 6:9",
+  "Blessed are the merciful. – Matthew 5:7"
+];
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("scripture").innerText = verses[new Date().getDay() % verses.length];
+});
 
 // ------------------------------
-// Testimonial Slider
+// ENCOURAGEMENT ROTATION
 // ------------------------------
-let tIndex = 0;
-function rotateTestimonials() {
-  const t = document.querySelectorAll(".testimonial");
-  t.forEach(s => s.classList.add("hidden"));
-  t[tIndex].classList.remove("hidden");
-  tIndex = (tIndex + 1) % t.length;
-}
-setInterval(rotateTestimonials, 6000);
+const encouragements = [
+  "Small acts of kindness change the world.",
+  "Every dollar you give becomes a seed of hope.",
+  "You are part of someone’s miracle today.",
+  "Compassion heals more than hunger."
+];
+let eIndex = 0;
+setInterval(() => {
+  document.getElementById("encourage").innerText = encouragements[eIndex];
+  eIndex = (eIndex + 1) % encouragements.length;
+}, 5000);
 
 // ------------------------------
-// Animated Donation Counter
+// ‘NEEDS OF THE WEEK’ ROTATOR
 // ------------------------------
-let meals = Math.floor(200 + Math.random() * 120);
-function animateCounter() {
-  const el = document.getElementById("mealCounter");
-  meals += Math.floor(Math.random() * 3); 
-  el.innerText = meals.toLocaleString();
-}
-setInterval(animateCounter, 3500);
+const needs = [
+  "We are low on blankets this week.",
+  "We need bottled water for street outreach.",
+  "We are preparing food bags for 30 new people.",
+  "We are helping two people transition from jail to housing."
+];
+let nIndex = 0;
+setInterval(() => {
+  document.getElementById("needs").innerText = needs[nIndex];
+  nIndex = (nIndex + 1) % needs.length;
+}, 7000);
 </script>
 
 </head>
 <body>
 
-<div class="pulse-bar"></div>
+<div class="top-scripture" id="scripture">Loading...</div>
+
+<div class="daily-encourage" id="encourage">
+  Small acts of kindness change the world.
+</div>
 
 <header>
   <h1>Hope in Motion</h1>
-  <p>Every small act of kindness moves a mountain. Even a single dollar feeds someone tonight.</p>
+  <p>Every small act moves a mountain. Even a single dollar feeds someone tonight.</p>
 </header>
 
 <div class="container">
 
-  <div class="hero-slider">
-    <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1200&q=60" class="active">
-    <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1200&q=60">
-    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=60">
-    <img src="https://images.unsplash.com/photo-1515169067865-5387ec356754?auto=format&fit=crop&w=1200&q=60">
-  </div>
+  <h2>This Week’s Need</h2>
+  <p id="needs" style="font-size:20px; font-weight:bold;">Loading...</p>
 
-  <div class="counter-box">
-    <div class="counter-number" id="mealCounter">312</div>
-    <p>meals funded by small donations this week.</p>
-    <small>Every  helps keep someone alive.</small>
+  <h2>Faces of Hope</h2>
+  <div class="faces-grid">
+    <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=400&q=60">
+    <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=400&q=60">
+    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=400&q=60">
+    <img src="https://images.unsplash.com/photo-1515169067865-5387ec356754?auto=format&fit=crop&w=400&q=60">
+    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=60">
+    <img src="https://images.unsplash.com/photo-1565678381703-1e523762dc30?auto=format&fit=crop&w=400&q=60">
   </div>
 
   <a class="btn" href="https://www.paypal.com/donate/?hosted_button_id=7B33SKHE49TPA">
     Give  – Change a Life
   </a>
 
-  <h2>What People Are Saying</h2>
-
-  <div class="testimonial">
-    “They fed me when nobody else cared. I owe my life to a small gift from a stranger.”
-    <br><strong>– Alicia</strong>
-  </div>
-
-  <div class="testimonial hidden">
-    “I left jail with nothing. Broken Growth gave me clothes and a real chance.”
-    <br><strong>– Trevor</strong>
-  </div>
-
-  <div class="testimonial hidden">
-    “When I lost everything, this ministry stood by me. I felt human again.”
-    <br><strong>– Marcus</strong>
-  </div>
-
+  <h2>Want to Volunteer?</h2>
   <a class="btn" href="volunteer.html">Become a Volunteer</a>
 
 </div>
