@@ -1,163 +1,80 @@
-﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Broken Growth Ministries – Hope in Motion</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Broken Growth Ministries | Hope for Pensacola’s Homeless</title>
+<meta name="description" content="Founded by Tim — helping Pensacola’s homeless rebuild their lives through dignity, community, and compassion."/>
+<meta property="og:title" content="Broken Growth Ministries | Hope for Pensacola’s Homeless"/>
+<meta property="og:description" content="Tim and Broken Growth Ministries are breaking the cycle of homelessness in Pensacola. Every meal, every night, every donation matters."/>
+<meta property="og:image" content="https://images.unsplash.com/photo-1490080563947-3cdbe6aa714f?q=80&w=2000"/>
+<meta property="og:url" content="https://mrnobody420-glitch.github.io/brokengrowth/"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Broken Growth Ministries"/>
+<meta name="twitter:description" content="Help Tim bring hope to Pensacola’s streets. Every donation changes a life."/>
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1490080563947-3cdbe6aa714f?q=80&w=2000"/>
+<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3448/3448720.png"/>
 <style>
-body { font-family: Arial, sans-serif; background:#f4f4f4; margin:0; padding:0; }
-
-.top-scripture {
-  background:#003cb5;
-  color:white;
-  text-align:center;
-  padding:10px;
-  font-size:18px;
-  animation:fadeIn 2s ease-in-out;
-}
-@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
-
-.daily-encourage {
-  background:#eef5ff;
-  border-left:6px solid #005eff;
-  padding:15px;
-  margin:20px auto;
-  max-width:900px;
-  border-radius:10px;
-  font-size:18px;
-  color:#333;
-  animation:pulseGlow 4s infinite;
-}
-@keyframes pulseGlow {
-  0% { box-shadow:0 0 0 rgba(0,0,0,0); }
-  50% { box-shadow:0 0 12px rgba(0,94,255,.35); }
-  100% { box-shadow:0 0 0 rgba(0,0,0,0); }
-}
-
-header {
-  background:url('https://images.unsplash.com/photo-1493836512294-502baa1986e2?auto=format&fit=crop&w=1350&q=80') center/cover;
-  padding:90px 20px; color:white; text-shadow:0 2px 6px rgba(0,0,0,.35);
-}
-header h1 { font-size:48px; margin:0; text-align:center; }
-header p { font-size:22px; max-width:720px; margin:20px auto; text-align:center; }
-
-.container {
-  max-width:900px;
-  margin:40px auto;
-  background:white;
-  padding:30px;
-  border-radius:14px;
-  box-shadow:0 0 15px rgba(0,0,0,0.15);
-}
-
-.faces-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:10px;
-  margin:20px 0;
-}
-.faces-grid img {
-  width:100%;
-  border-radius:10px;
-  filter:brightness(.92);
-  transition:0.3s;
-}
-.faces-grid img:hover {
-  filter:brightness(1.1);
-}
-
-.btn {
-  display:block; text-align:center; background:#005eff; color:white;
-  padding:15px; margin:25px auto; border-radius:10px;
-  text-decoration:none; font-size:22px; width:70%;
-}
-.btn:hover { background:#003cb5; }
-
+:root{--bg:#0b132b;--bg2:#1c2541;--accent:#3a506b;--teal:#5bc0be;--pay:#0070ba;--pay2:#005c95;}
+body{margin:0;font-family:'Segoe UI',Roboto,Arial,sans-serif;background:#f5f7f9;color:#333;line-height:1.55}
+.container{max-width:1100px;margin:0 auto;padding:0 16px}
+header.hero{position:relative;color:#fff;background:linear-gradient(135deg,var(--bg),var(--bg2));overflow:hidden;text-align:center}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1490080563947-3cdbe6aa714f?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;opacity:0.35}
+.hero-content{position:relative;z-index:2;padding:120px 0 80px}
+.hero-content h1{font-size:3rem;margin-bottom:12px}
+.hero-content p{font-size:1.2rem;max-width:700px;margin:0 auto 22px}
+.cta{background:var(--pay);color:#fff;padding:14px 22px;border-radius:10px;text-decoration:none;font-weight:600}
+.cta:hover{background:var(--pay2)}
+.section{background:#fff;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,.07);margin:30px 0;padding:24px}
+h2{color:var(--bg2);border-left:6px solid var(--accent);padding-left:12px}
+footer{background:#1c2541;color:#fff;text-align:center;padding:25px 10px;margin-top:40px}
+footer a{color:#5bc0be;text-decoration:none}
+footer a:hover{text-decoration:underline}
+.form-group{margin-bottom:14px}
+label{display:block;font-weight:600;margin-bottom:6px}
+input,textarea{width:100%;padding:10px;border-radius:6px;border:1px solid #ccc}
+button.submit{background:var(--accent);color:#fff;border:none;padding:12px 20px;border-radius:8px;font-weight:600;cursor:pointer}
+button.submit:hover{background:var(--bg2)}
 </style>
-
-<script>
-// ------------------------------
-// DAILY SCRIPTURE ROTATION
-// ------------------------------
-const verses = [
-  "‘For I know the plans I have for you,’ declares the Lord – Jeremiah 29:11",
-  "The Lord is close to the brokenhearted. – Psalm 34:18",
-  "Do not grow weary in doing good. – Galatians 6:9",
-  "Blessed are the merciful. – Matthew 5:7"
-];
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("scripture").innerText = verses[new Date().getDay() % verses.length];
-});
-
-// ------------------------------
-// ENCOURAGEMENT ROTATION
-// ------------------------------
-const encouragements = [
-  "Small acts of kindness change the world.",
-  "Every dollar you give becomes a seed of hope.",
-  "You are part of someone’s miracle today.",
-  "Compassion heals more than hunger."
-];
-let eIndex = 0;
-setInterval(() => {
-  document.getElementById("encourage").innerText = encouragements[eIndex];
-  eIndex = (eIndex + 1) % encouragements.length;
-}, 5000);
-
-// ------------------------------
-// ‘NEEDS OF THE WEEK’ ROTATOR
-// ------------------------------
-const needs = [
-  "We are low on blankets this week.",
-  "We need bottled water for street outreach.",
-  "We are preparing food bags for 30 new people.",
-  "We are helping two people transition from jail to housing."
-];
-let nIndex = 0;
-setInterval(() => {
-  document.getElementById("needs").innerText = needs[nIndex];
-  nIndex = (nIndex + 1) % needs.length;
-}, 7000);
-</script>
-
 </head>
 <body>
-
-<div class="top-scripture" id="scripture">Loading...</div>
-
-<div class="daily-encourage" id="encourage">
-  Small acts of kindness change the world.
+<header class="hero">
+<div class="hero-bg"></div>
+<div class="hero-content">
+<h1>Broken Growth Ministries</h1>
+<p>Founded by Tim — a man who walked the streets himself and now walks them again, with love and food in hand. Together we can end the cycle of homelessness in Pensacola.</p>
+<a class="cta" href="https://www.paypal.com/donate/?hosted_button_id=7B33SKHE49TPA" target="_blank">Donate Now</a>
 </div>
-
-<header>
-  <h1>Hope in Motion</h1>
-  <p>Every small act moves a mountain. Even a single dollar feeds someone tonight.</p>
 </header>
-
-<div class="container">
-
-  <h2>This Week’s Need</h2>
-  <p id="needs" style="font-size:20px; font-weight:bold;">Loading...</p>
-
-  <h2>Faces of Hope</h2>
-  <div class="faces-grid">
-    <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=400&q=60">
-    <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=400&q=60">
-    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=400&q=60">
-    <img src="https://images.unsplash.com/photo-1515169067865-5387ec356754?auto=format&fit=crop&w=400&q=60">
-    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=60">
-    <img src="https://images.unsplash.com/photo-1565678381703-1e523762dc30?auto=format&fit=crop&w=400&q=60">
-  </div>
-
-  <a class="btn" href="https://www.paypal.com/donate/?hosted_button_id=7B33SKHE49TPA">
-    Give  – Change a Life
-  </a>
-
-  <h2>Want to Volunteer?</h2>
-  <a class="btn" href="volunteer.html">Become a Volunteer</a>
-
-</div>
-
+<main class="container">
+<section class="section">
+<h2>Join Our Mission</h2>
+<p>We’re building more than a charity — we’re building family. Every sign-up joins our weekly Brevo newsletter with stories, photos, and urgent needs.</p>
+<form action="https://your-brevo-form-link" method="POST">
+<div class="form-group"><label>Email Address</label><input type="email" name="email" required/></div>
+<button type="submit" class="submit">Subscribe to Updates</button>
+</form>
+</section>
+<section class="section">
+<h2>Volunteer / Contact</h2>
+<p>Can’t donate? Your time and voice matter just as much. Let’s connect and find your way to serve.</p>
+<form action="https://formspree.io/f/xaykldzw" method="POST">
+<div class="form-group"><label>Name</label><input type="text" name="name" required/></div>
+<div class="form-group"><label>Email</label><input type="email" name="email" required/></div>
+<div class="form-group"><label>Message</label><textarea name="message" rows="4" placeholder="Tell us how you’d like to help..."></textarea></div>
+<button type="submit" class="submit">Send Message</button>
+</form>
+</section>
+<section class="section">
+<h2>Support the Cause</h2>
+<p>Donations go directly to food, clothing, shelter, and outreach. No salaries, no waste — just service.</p>
+<a class="cta" href="https://www.paypal.com/donate/?hosted_button_id=7B33SKHE49TPA" target="_blank">Donate via PayPal</a>
+</section>
+</main>
+<footer>
+<div>© <script>document.write(new Date().getFullYear())</script> Broken Growth Ministries | Founded by Tim</div>
+<div><a href="https://mrnobody420-glitch.github.io/brokengrowth/">Visit our site</a> | <a href="https://www.paypal.com/donate/?hosted_button_id=7B33SKHE49TPA">Donate</a></div>
+</footer>
 </body>
 </html>
+
