@@ -2,79 +2,162 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Broken Growth Ministries – Restore Hope</title>
+<title>Broken Growth Ministries – Hope in Motion</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
-body { font-family: Arial; background:#f4f4f4; margin:0; padding:0; }
-header { background:url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1350&q=80') center/cover; padding:80px 20px; color:white; text-shadow:0 2px 6px rgba(0,0,0,.35); }
-header h1 { font-size:48px; margin:0; text-align:center; }
-header p { font-size:20px; max-width:700px; margin:20px auto; text-align:center; }
+body { font-family: Arial, sans-serif; background:#f4f4f4; margin:0; padding:0; }
+
+.pulse-bar {
+  width:100%; height:5px;
+  background:linear-gradient(90deg,#005eff,#00a2ff,#00ffd0);
+  animation:pulse 3s infinite linear;
+}
+@keyframes pulse { from {background-position:0;} to {background-position:200%;} }
+
+header {
+  background:url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1350&q=80') center/cover;
+  padding:90px 20px; color:white; text-shadow:0 2px 6px rgba(0,0,0,.35);
+}
+header h1 { font-size:48px; text-align:center; margin:0; }
+header p { font-size:22px; text-align:center; max-width:720px; margin:25px auto; }
 
 .container {
   max-width:900px;
-  margin:30px auto;
+  margin:40px auto;
   background:white;
   padding:30px;
   border-radius:14px;
   box-shadow:0 0 15px rgba(0,0,0,0.15);
 }
 
-.btn {
-  display:block; text-align:center; background:#005eff; color:white;
-  padding:15px; font-size:22px; text-decoration:none;
-  border-radius:10px; margin:25px auto; width:70%;
-  font-weight:bold;
+.hero-slider img {
+  width:100%;
+  border-radius:14px;
+  display:none;
 }
+.hero-slider img.active { display:block; }
 
 .testimonial {
-  background:#f8f8f8; padding:20px; border-left:4px solid #005eff;
-  margin:20px 0; border-radius:6px;
+  padding:20px;
+  background:#f8f8f8;
+  border-left:5px solid #005eff;
+  margin:20px 0;
+  border-radius:6px;
 }
+.testimonial.hidden { display:none; }
 
-img.hero-img {
-  width:100%; border-radius:14px; margin-top:25px;
+.btn {
+  display:block;
+  text-align:center;
+  background:#005eff;
+  color:white;
+  padding:15px;
+  margin:25px auto;
+  border-radius:10px;
+  text-decoration:none;
+  font-size:22px;
+  width:70%;
+}
+.btn:hover { background:#003cb5; }
+
+.counter-box {
+  background:#eef5ff;
+  padding:20px;
+  border-radius:12px;
+  text-align:center;
+  margin:25px 0;
+}
+.counter-number {
+  font-size:40px;
+  font-weight:bold;
+  color:#005eff;
 }
 </style>
+
+<script>
+// ------------------------------
+// Volunteer Photo Slider
+// ------------------------------
+let slideIndex = 0;
+function rotateSlides() {
+  const slides = document.querySelectorAll(".hero-slider img");
+  slides.forEach(s => s.classList.remove("active"));
+  slides[slideIndex].classList.add("active");
+  slideIndex = (slideIndex + 1) % slides.length;
+}
+setInterval(rotateSlides, 4500);
+
+// ------------------------------
+// Testimonial Slider
+// ------------------------------
+let tIndex = 0;
+function rotateTestimonials() {
+  const t = document.querySelectorAll(".testimonial");
+  t.forEach(s => s.classList.add("hidden"));
+  t[tIndex].classList.remove("hidden");
+  tIndex = (tIndex + 1) % t.length;
+}
+setInterval(rotateTestimonials, 6000);
+
+// ------------------------------
+// Animated Donation Counter
+// ------------------------------
+let meals = Math.floor(200 + Math.random() * 120);
+function animateCounter() {
+  const el = document.getElementById("mealCounter");
+  meals += Math.floor(Math.random() * 3); 
+  el.innerText = meals.toLocaleString();
+}
+setInterval(animateCounter, 3500);
+</script>
+
 </head>
 <body>
 
+<div class="pulse-bar"></div>
+
 <header>
-  <h1>Restoring Hope In Pensacola</h1>
-  <p>Every single act of kindness changes a life. Even a small donation can feed someone tonight.</p>
+  <h1>Hope in Motion</h1>
+  <p>Every small act of kindness moves a mountain. Even a single dollar feeds someone tonight.</p>
 </header>
 
 <div class="container">
 
-  <h2>Your Impact Starts With Just </h2>
-  <p>
-    Broken Growth Ministries serves the homeless, the hungry, and men and women rebuilding life after incarceration.
-    Even a <strong> micro-donation</strong> puts food into someone’s hands. Small gifts create big outcomes.
-  </p>
-
-  <img class="hero-img" src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=60">
-
-  <a class="btn" href="https://www.paypal.com/donate/?hosted_button_id=7B33SKHE49TPA">
-    Give Hope – Every Dollar Helps
-  </a>
-
-  <h2>Real People. Real Change.</h2>
-
-  <div class="testimonial">
-    “I had nothing left. Broken Growth gave me food, clothes, and a place to breathe again. They treated me like a human.”
-    <br><strong>– Marcus (Pensacola)</strong>
+  <div class="hero-slider">
+    <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1200&q=60" class="active">
+    <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1200&q=60">
+    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=60">
+    <img src="https://images.unsplash.com/photo-1515169067865-5387ec356754?auto=format&fit=crop&w=1200&q=60">
   </div>
 
+  <div class="counter-box">
+    <div class="counter-number" id="mealCounter">312</div>
+    <p>meals funded by small donations this week.</p>
+    <small>Every  helps keep someone alive.</small>
+  </div>
+
+  <a class="btn" href="https://www.paypal.com/donate/?hosted_button_id=7B33SKHE49TPA">
+    Give  – Change a Life
+  </a>
+
+  <h2>What People Are Saying</h2>
+
   <div class="testimonial">
-    “This ministry fed me when nobody else would. I’m alive because a stranger cared enough to give.”
+    “They fed me when nobody else cared. I owe my life to a small gift from a stranger.”
     <br><strong>– Alicia</strong>
   </div>
 
-  <div class="testimonial">
-    “I left jail with only the clothes on my back. They stepped in before I gave up.”
+  <div class="testimonial hidden">
+    “I left jail with nothing. Broken Growth gave me clothes and a real chance.”
     <br><strong>– Trevor</strong>
   </div>
 
-  <h2>Want to Volunteer?</h2>
+  <div class="testimonial hidden">
+    “When I lost everything, this ministry stood by me. I felt human again.”
+    <br><strong>– Marcus</strong>
+  </div>
+
   <a class="btn" href="volunteer.html">Become a Volunteer</a>
 
 </div>
