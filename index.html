@@ -1,534 +1,275 @@
-﻿<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Broken Growth Ministries - From the Streets to Hope</title>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Broken Growth Ministries - quiet, steady outreach in Pensacola for people rebuilding after homelessness, jail, and hard seasons of life.">
+  <title>Broken Growth Ministries | Reentry, Housing & Hope in Pensacola</title>
+  <meta name="description" content="Broken Growth Ministries helps adults rebuilding after incarceration and homelessness in Pensacola through housing, employment, mentorship, life skills, and practical support.">
+  <link rel="canonical" href="https://mrnobody420-glitch.github.io/brokengrowth/">
+  <meta name="theme-color" content="#101923">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Broken Growth Ministries">
+  <meta property="og:title" content="Broken Growth Ministries | From Broken Ground to Steady Hope">
+  <meta property="og:description" content="Faith-centered reentry, housing, employment, and practical support for adults rebuilding their lives in Pensacola.">
+  <meta property="og:url" content="https://mrnobody420-glitch.github.io/brokengrowth/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1494386346843-e12284507169?auto=format&fit=crop&w=1200&h=630&q=85">
+  <meta property="og:image:alt" content="Sunlight breaking through clouds, representing hope and a new beginning">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Broken Growth Ministries | Reentry, Housing & Hope">
+  <meta name="twitter:description" content="Help adults rebuilding after incarceration and homelessness move toward stability, work, and community.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1494386346843-e12284507169?auto=format&fit=crop&w=1200&h=630&q=85">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NonprofitOrganization",
+    "name": "BrokenGrowthMinistries, Inc.",
+    "alternateName": "Broken Growth Ministries",
+    "url": "https://mrnobody420-glitch.github.io/brokengrowth/",
+    "email": "BrokenGrowthMinistry7@proton.me",
+    "foundingDate": "2026-02-23",
+    "founder": {"@type": "Person", "name": "Timothy Oates"},
+    "address": {"@type": "PostalAddress", "addressLocality": "Pensacola", "addressRegion": "FL", "addressCountry": "US"},
+    "areaServed": {"@type": "AdministrativeArea", "name": "Escambia County, Florida"},
+    "description": "A faith-centered Florida nonprofit helping adults rebuilding after incarceration and homelessness through housing, employment, mentorship, life skills, and practical support."
+  }
+  </script>
+
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1f2937 0, #020617 55%, #000000 100%);
-      color: #e5e7eb;
-      line-height: 1.6;
-    }
-    a { color: #38bdf8; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .page { min-height: 100vh; display: flex; flex-direction: column; }
-
-    .container { width: 100%; max-width: 980px; margin: 0 auto; padding: 1.5rem; }
-
-    header {
-      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
-      backdrop-filter: blur(10px);
-      background: linear-gradient(to right, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.65));
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    .nav { display: flex; align-items: center; justify-content: space-between; }
-    .brand { display: flex; align-items: center; gap: 0.5rem; }
-    .brand-mark {
-      width: 28px; height: 28px; border-radius: 999px;
-      background: radial-gradient(circle at 30% 20%, #f97316, #ea580c 40%, #111827 100%);
-      box-shadow: 0 0 24px rgba(248, 250, 252, 0.2);
-    }
-    .brand-text {
-      font-weight: 600; letter-spacing: 0.03em; font-size: 0.95rem;
-      text-transform: uppercase; color: #e5e7eb;
-    }
-    .nav-links { display: flex; gap: 1.25rem; font-size: 0.9rem; color: #cbd5f5; }
-    .nav-links a { color: #cbd5f5; opacity: 0.85; }
-    .nav-links a:hover { opacity: 1; }
-
-    .hero {
-      padding: 3.5rem 0 2.5rem;
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 2rem;
-      align-items: center;
-    }
-    .hero-left h1 {
-      font-size: 2.3rem; line-height: 1.25;
-      margin-bottom: 1rem; color: #f9fafb;
-    }
-    .hero-left h1 span { color: #f97316; }
-    .hero-sub {
-      color: #cbd5f5; font-size: 0.99rem;
-      margin-bottom: 1.8rem; max-width: 34rem;
-    }
-    .hero-sub strong { color: #e5e7eb; font-weight: 600; }
-    .hero-actions {
-      display: flex; flex-wrap: wrap; gap: 0.75rem;
-      align-items: center; margin-bottom: 1.25rem;
-    }
-    .btn-primary {
-      background: linear-gradient(to right, #f97316, #ea580c);
-      border: none; color: #0b1120;
-      padding: 0.7rem 1.5rem; border-radius: 999px;
-      font-weight: 600; font-size: 0.95rem; cursor: pointer;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.9);
-      display: inline-block;
-    }
-    .btn-primary:hover { filter: brightness(1.05); transform: translateY(-1px); }
-    .btn-ghost {
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      padding: 0.65rem 1.35rem;
-      font-size: 0.9rem; color: #e5e7eb;
-      background: linear-gradient(to right, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.4));
-      display: inline-block;
-    }
-    .btn-ghost:hover { border-color: #e5e7eb; }
-    .hero-note { font-size: 0.8rem; color: #94a3b8; }
-    .hero-note span { color: #22c55e; font-weight: 600; }
-
-    .hero-card {
-      background: radial-gradient(circle at top, #1f2937, #020617 80%);
-      border-radius: 1.2rem; padding: 1.4rem 1.35rem;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
-      position: relative; overflow: hidden;
-    }
-    .hero-card::before {
-      content: ""; position: absolute; inset: -40%;
-      background: radial-gradient(circle at top, rgba(148, 163, 184, 0.35), transparent 55%);
-      opacity: 0.75; mix-blend-mode: soft-light; pointer-events: none;
-    }
-    .hero-card-inner { position: relative; z-index: 1; }
-    .hero-card-title {
-      font-size: 0.95rem; letter-spacing: 0.08em;
-      text-transform: uppercase; color: #e5e7eb; margin-bottom: 0.5rem;
-    }
-    .hero-card-quote {
-      font-size: 0.9rem; color: #cbd5f5; margin-bottom: 0.75rem;
-    }
-    .hero-card-quote em { color: #e5e7eb; }
-    .hero-card-name { font-size: 0.85rem; color: #9ca3af; }
-    .hero-metric {
-      margin-top: 1rem; padding-top: 0.75rem;
-      border-top: 1px dashed rgba(148, 163, 184, 0.6);
-      display: flex; justify-content: space-between;
-      gap: 0.75rem; font-size: 0.78rem; color: #9ca3af;
-    }
-    .hero-metric span strong {
-      display: block; font-size: 1rem; color: #e5e7eb;
-    }
-
-    .section {
-      padding: 2.5rem 0;
-      border-top: 1px solid rgba(31, 41, 55, 0.9);
-      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.98));
-    }
-    .section.alt {
-      background: radial-gradient(circle at top, #020617, #020617 40%, #000000 100%);
-    }
-    .section-title { font-size: 1.4rem; margin-bottom: 0.75rem; color: #f9fafb; }
-    .section-sub {
-      font-size: 0.95rem; color: #cbd5f5;
-      max-width: 36rem; margin-bottom: 1.6rem;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.5rem;
-    }
-    .card {
-      border-radius: 0.9rem;
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      background: radial-gradient(circle at top, #111827, #020617 75%);
-      padding: 1rem;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.8);
-      font-size: 0.9rem; color: #d1d5db;
-    }
-    .card h3 { font-size: 1rem; margin-bottom: 0.4rem; color: #e5e7eb; }
-    .card small { font-size: 0.75rem; color: #9ca3af; }
-    .pill-row {
-      display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.6rem;
-    }
-    .pill {
-      border-radius: 999px; padding: 0.2rem 0.6rem;
-      font-size: 0.75rem;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      color: #e5e7eb; background: rgba(15, 23, 42, 0.7);
-    }
-
-    .story-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      gap: 1.5rem; align-items: flex-start;
-    }
-    .quote-block {
-      font-size: 0.92rem; color: #e5e7eb;
-      border-left: 3px solid #f97316;
-      padding-left: 0.9rem; margin-bottom: 1rem;
-    }
-    .quote-block em { color: #cbd5f5; }
-    .tiny-label {
-      font-size: 0.75rem; text-transform: uppercase;
-      letter-spacing: 0.12em; color: #9ca3af; margin-bottom: 0.4rem;
-    }
-    .metric-row {
-      display: flex; gap: 1.3rem;
-      font-size: 0.8rem; color: #9ca3af; margin-top: 0.6rem;
-    }
-    .metric-row span strong {
-      display: block; color: #e5e7eb; font-size: 0.95rem;
-    }
-
-    .testimonials {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.2rem;
-    }
-    .testimonial {
-      font-size: 0.88rem; color: #e5e7eb;
-      border-radius: 0.8rem;
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      background: radial-gradient(circle at top, #020617, #020617 70%);
-      padding: 0.9rem;
-    }
-    .testimonial em { color: #cbd5f5; }
-    .testimonial span {
-      display: block; margin-top: 0.4rem;
-      font-size: 0.75rem; color: #9ca3af;
-    }
-
-    .impact-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1rem;
-      font-size: 0.85rem;
-    }
-    .impact-item {
-      border-radius: 0.7rem;
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      background: #020617;
-      padding: 0.7rem;
-      text-align: left;
-    }
-    .impact-item strong {
-      display: block;
-      color: #f97316;
-      margin-bottom: 0.2rem;
-    }
-
-    .timeline {
-      border-left: 2px solid rgba(148, 163, 184, 0.7);
-      padding-left: 0.85rem;
-      font-size: 0.86rem;
-      color: #cbd5f5;
-    }
-    .timeline-entry {
-      margin-bottom: 0.7rem;
-      position: relative;
-    }
-    .timeline-entry::before {
-      content: "";
-      width: 8px; height: 8px;
-      border-radius: 999px;
-      background: #f97316;
-      position: absolute;
-      left: -1.15rem;
-      top: 0.35rem;
-    }
-    .timeline-entry strong {
-      display: block;
-      color: #e5e7eb;
-    }
-
-    footer {
-      border-top: 1px solid rgba(31, 41, 55, 0.9);
-      background: #020617;
-      padding: 1.5rem 0 1.8rem;
-      font-size: 0.8rem;
-      color: #9ca3af;
-    }
-    footer .footer-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 1rem;
-      align-items: flex-start;
-    }
-    footer strong { color: #e5e7eb; }
-    .mono {
-      font-family: ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      font-size: 0.78rem;
-      color: #cbd5f5;
-    }
-    .scripture {
-      font-size: 0.8rem;
-      color: #e5e7eb;
-      margin-top: 0.5rem;
-      font-style: italic;
-    }
-
-    @media (max-width: 860px) {
-      .hero { grid-template-columns: minmax(0, 1fr); }
-      .hero-card { order: -1; margin-bottom: 1.5rem; }
-      .story-grid { grid-template-columns: minmax(0, 1fr); }
-      .grid-3 { grid-template-columns: minmax(0, 1fr); }
-      .testimonials { grid-template-columns: minmax(0, 1fr); }
-      .impact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      header { position: static; }
-    }
+    :root{--night:#101923;--navy:#172638;--slate:#30475d;--cream:#fffaf0;--paper:#fff;--orange:#e86d2a;--orange2:#bf4c16;--teal:#2f8f83;--ink:#17212b;--muted:#596a78;--line:#dbe3e8;--shadow:0 18px 50px rgba(16,25,35,.12)}
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:#f4f7f8;line-height:1.65}
+    a{color:inherit}
+    img{max-width:100%}
+    .container{width:min(1120px,calc(100% - 32px));margin-inline:auto}
+    .skip{position:absolute;left:-9999px;top:8px;background:#fff;padding:10px;z-index:100}
+    .skip:focus{left:8px}
+    .site-header{position:sticky;top:0;z-index:20;background:rgba(16,25,35,.96);border-bottom:1px solid rgba(255,255,255,.12)}
+    .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none;font-weight:800;letter-spacing:.01em}
+    .mark{display:grid;place-items:center;width:38px;height:38px;border-radius:50% 50% 45% 55%;background:linear-gradient(145deg,#ffad45,var(--orange));font-size:21px;box-shadow:0 0 0 4px rgba(232,109,42,.16)}
+    nav{display:flex;align-items:center;gap:22px}
+    nav a{color:#eef4f7;text-decoration:none;font-size:.93rem;font-weight:650}
+    nav a:hover,nav a:focus{color:#ffbf77}
+    .nav-donate{padding:9px 15px;border-radius:999px;background:var(--orange)}
+    .hero{position:relative;isolation:isolate;overflow:hidden;color:#fff;background:linear-gradient(115deg,rgba(16,25,35,.98),rgba(23,38,56,.84)),url('https://images.unsplash.com/photo-1494386346843-e12284507169?auto=format&fit=crop&w=1800&q=85') center/cover}
+    .hero::after{content:"";position:absolute;z-index:-1;inset:auto -12% -55% 40%;height:620px;background:radial-gradient(circle,rgba(232,109,42,.35),transparent 65%)}
+    .hero-grid{min-height:650px;display:grid;grid-template-columns:1.25fr .75fr;align-items:center;gap:64px;padding:80px 0}
+    .eyebrow{text-transform:uppercase;letter-spacing:.15em;font-size:.78rem;font-weight:800;color:#ffbe75}
+    h1{font-size:clamp(2.6rem,6vw,5.2rem);line-height:1.03;letter-spacing:-.045em;margin:.5rem 0 1.25rem;max-width:850px}
+    .lead{font-size:clamp(1.05rem,2vw,1.28rem);max-width:720px;color:#e3ebef;margin:0 0 28px}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:11px 20px;border:0;border-radius:10px;text-decoration:none;font-weight:800;cursor:pointer;font:inherit}
+    .button-primary{background:var(--orange);color:#fff;box-shadow:0 12px 30px rgba(191,76,22,.28)}
+    .button-primary:hover,.button-primary:focus{background:var(--orange2)}
+    .button-secondary{background:#fff;color:var(--night)}
+    .button-dark{background:var(--night);color:#fff}
+    .trust-line{margin-top:18px;font-size:.86rem;color:#c7d3db}
+    .hero-card{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.22);border-radius:22px;padding:28px;backdrop-filter:blur(8px)}
+    .hero-card h2{margin:0 0 12px;font-size:1.4rem}
+    .hero-card ul{padding-left:20px;margin:0;color:#e8eef1}
+    section{scroll-margin-top:84px}
+    .section{padding:88px 0}
+    .section-white{background:var(--paper)}
+    .section-dark{background:var(--night);color:#fff}
+    .section-title{font-size:clamp(2rem,4vw,3.2rem);line-height:1.1;letter-spacing:-.03em;margin:.4rem 0 1rem}
+    .section-copy{max-width:760px;color:var(--muted);font-size:1.06rem;margin-bottom:34px}
+    .section-dark .section-copy{color:#c8d3da}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:25px;box-shadow:0 8px 30px rgba(16,25,35,.06)}
+    .card h3{margin:.25rem 0 .45rem;font-size:1.22rem}
+    .card p{margin:0;color:var(--muted)}
+    .icon{font-size:1.65rem}
+    .path{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;border-radius:18px;overflow:hidden;background:#304050}
+    .path div{padding:25px;background:#1a2a3a}
+    .path strong{display:block;color:#ffb96d;margin-bottom:6px}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+    .quote{border-left:5px solid var(--orange);padding:8px 0 8px 24px;font-size:1.28rem;margin:20px 0}
+    .facts{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .fact{background:var(--cream);border-radius:12px;padding:18px}
+    .fact strong{display:block;color:var(--orange2);font-size:1.2rem}
+    .support{background:linear-gradient(140deg,#fff6e8,#f3faf8)}
+    .support-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:42px;align-items:start}
+    .impact-list{display:grid;gap:14px;margin-top:26px}
+    .impact{display:flex;gap:14px;align-items:flex-start}
+    .impact b{display:grid;place-items:center;min-width:52px;height:38px;border-radius:8px;background:var(--night);color:#fff}
+    .forms{display:grid;gap:20px}
+    .form-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:25px;box-shadow:var(--shadow)}
+    .form-card h3{margin:0 0 5px}
+    .form-card>p{color:var(--muted);margin:0 0 18px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .field{margin-bottom:14px}
+    label{display:block;font-size:.9rem;font-weight:750;margin-bottom:6px}
+    input,textarea{display:block;width:100%;max-width:100%;padding:12px 13px;border:1px solid #bdcbd3;border-radius:8px;background:#fff;color:var(--ink);font:inherit}
+    input:focus,textarea:focus{outline:3px solid rgba(47,143,131,.2);border-color:var(--teal)}
+    textarea{resize:vertical;min-height:115px}
+    .consent{font-size:.78rem;color:var(--muted);margin:10px 0}
+    .status{min-height:24px;margin:10px 0 0;font-size:.9rem;font-weight:700}
+    .status.ok{color:#176b45}.status.error{color:#a32820}
+    .contact-direct{margin-top:15px;color:var(--muted);font-size:.92rem}
+    footer{background:#0a1118;color:#b8c5cd;padding:36px 0}
+    .footer-grid{display:flex;justify-content:space-between;gap:25px;align-items:center}
+    footer a{color:#fff}
+    .legal{font-size:.8rem;max-width:560px}
+    @media(max-width:850px){nav a:not(.nav-donate){display:none}.hero-grid,.about-grid,.support-grid{grid-template-columns:1fr}.hero-grid{min-height:auto;gap:30px;padding:66px 0}.grid-3{grid-template-columns:1fr}.path{grid-template-columns:1fr 1fr}.section{padding:64px 0}.footer-grid{align-items:flex-start;flex-direction:column}}
+    @media(max-width:520px){.container{width:min(100% - 22px,1120px)}.brand{font-size:.87rem}.mark{width:32px;height:32px}.path,.facts,.form-grid{grid-template-columns:1fr}.hero-card{padding:21px}.form-card{padding:20px}.actions .button{width:100%}}
   </style>
 </head>
 <body>
-<div class="page">
-
-  <header>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
     <div class="container nav">
-      <div class="brand">
-        <div class="brand-mark"></div>
-        <div class="brand-text">Broken Growth Ministries</div>
-      </div>
-      <nav class="nav-links">
-        <a href="#work">Our Work</a>
-        <a href="#story">Tim’s Story</a>
-        <a href="#impact">Your Impact</a>
-        <a href="#testimonials">Voices</a>
+      <a class="brand" href="#top" aria-label="Broken Growth Ministries home"><span class="mark" aria-hidden="true">↟</span><span>Broken Growth Ministries</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#programs">Programs</a><a href="#story">Our story</a><a href="#connect">Connect</a>
+        <a class="nav-donate" href="https://www.paypal.com/donate/?hosted_button_id=7B33SKHE49TPA" target="_blank" rel="noopener noreferrer">Donate</a>
       </nav>
     </div>
   </header>
 
-  <main class="container">
-    <section class="hero">
-      <div class="hero-left">
-        <h1>
-          From broken ground<br>
-          to <span>quiet, steady hope.</span>
-        </h1>
-        <p class="hero-sub">
-          I’m Pastor Tim. I’ve been on both sides of the street-homeless, rebuilding after jail, and now walking with
-          people in Pensacola who are trying to stand up again. <strong>Broken Growth Ministries</strong> is a small,
-          quiet outreach: warm meals, clean clothes, survival basics, and honest conversation.
-        </p>
-        <div class="hero-actions">
-          <a class="btn-primary"
-             href="https://www.paypal.com/donate/?hosted_button_id=7B33SKHE49TPA"
-             target="_blank" rel="noopener">
-            Open PayPal Donation Page
-          </a>
-          <a href="#story" class="btn-ghost">
-            Read a bit of my story
-          </a>
+  <main id="main">
+    <section id="top" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Faith-centered restoration • Pensacola, Florida</div>
+          <h1>Broken does not mean finished.</h1>
+          <p class="lead">We help adults rebuilding after incarceration and homelessness move toward safe housing, meaningful work, supportive community, and lasting independence.</p>
+          <div class="actions">
+            <a class="button button-primary" href="https://www.paypal.com/donate/?hosted_button_id=7B33SKHE49TPA" target="_blank" rel="noopener noreferrer">Donate securely with PayPal</a>
+            <a class="button button-secondary" href="#connect">Volunteer or connect</a>
+          </div>
+          <div class="trust-line">BrokenGrowthMinistries, Inc. is an active Florida not-for-profit corporation. No statement on this page should be treated as confirmation that a gift is tax-deductible.</div>
         </div>
-        <div class="hero-note">
-          No pressure. No tricks. Just transparency. <span>Every small gift becomes something tangible on the street.</span>
+        <aside class="hero-card" aria-label="Our model">
+          <h2>A pathway—not a handout</h2>
+          <ul>
+            <li>Pre-release connection and reentry planning</li>
+            <li>Transitional tiny-home housing</li>
+            <li>Immediate employment and skills development</li>
+            <li>Mentorship, life skills, sobriety, and community</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="programs" class="section section-white">
+      <div class="container">
+        <div class="eyebrow">What we are building</div>
+        <h2 class="section-title">Stability from the first day forward</h2>
+        <p class="section-copy">Broken Growth Ministries combines practical support with accountability and opportunity. Our first planned residential facility will serve adults age 18 and older, beginning with men and expanding in later phases to women and families.</p>
+        <div class="grid-3">
+          <article class="card"><div class="icon" aria-hidden="true">⌂</div><h3>Housing</h3><p>Safe transitional tiny homes designed to replace instability with structure, dignity, and a place to rebuild.</p></article>
+          <article class="card"><div class="icon" aria-hidden="true">⚒</div><h3>Employment</h3><p>Job connections, hands-on trade pathways, skills development, and support toward long-term advancement.</p></article>
+          <article class="card"><div class="icon" aria-hidden="true">◎</div><h3>Whole-person support</h3><p>Mentorship, life skills, resource navigation, faith and values, recovery support, and a dependable community.</p></article>
         </div>
       </div>
+    </section>
 
-      <aside class="hero-card">
-        <div class="hero-card-inner">
-          <div class="hero-card-title">Field Note - Pensacola</div>
-          <p class="hero-card-quote">
-            <em>"I left jail with a bag of clothes, no plan, and a head full of noise. Someone gave me a hot meal and a straight conversation. That single moment kept me from going right back inside."</em>
-          </p>
-          <p class="hero-card-name">
-            - Tim, founder of Broken Growth Ministries
-          </p>
-          <div class="hero-metric">
-            <span>
-              <strong>One person at a time</strong>
-              Meals, clothes &amp; small acts of stability.
-            </span>
-            <span>
-              <strong>Faith in action</strong>
-              Quiet, daily work on the streets of Pensacola.
-            </span>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="eyebrow">The participant pathway</div>
+        <h2 class="section-title">One connected plan</h2>
+        <p class="section-copy">The goal is to prevent the familiar gaps that send people back to homelessness, relapse, or incarceration.</p>
+        <div class="path">
+          <div><strong>1. Connect</strong>Begin planning before release when possible.</div>
+          <div><strong>2. Stabilize</strong>Meet urgent housing, transportation, and basic needs.</div>
+          <div><strong>3. Build</strong>Start work, training, mentorship, and life-skills development.</div>
+          <div><strong>4. Advance</strong>Move toward independence, lasting employment, and healthy community.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="story" class="section section-white">
+      <div class="container about-grid">
+        <div>
+          <div class="eyebrow">Why Broken Growth exists</div>
+          <h2 class="section-title">Built from lived experience</h2>
+          <p>Founder Timothy Oates knows what it means to leave incarceration and face loss, instability, and homelessness. Broken Growth Ministries grew from the conviction that people can feel broken and still grow—and that a second chance needs more than words.</p>
+          <p class="quote">“We want people to leave incarceration with somewhere safe to go, meaningful work to begin, and a community that expects them to succeed.”</p>
+          <p>Our work is Christian and faith-centered, while practical service, dignity, accountability, and respect remain at the center of every relationship.</p>
+        </div>
+        <div class="facts" aria-label="Organization facts">
+          <div class="fact"><strong>18+</strong>Minimum participant age</div>
+          <div class="fact"><strong>10–15</strong>Planned first-phase tiny homes</div>
+          <div class="fact"><strong>30–50</strong>Planned first-year participants</div>
+          <div class="fact"><strong>Pensacola</strong>Initial Escambia County focus</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="connect" class="section support">
+      <div class="container support-grid">
+        <div>
+          <div class="eyebrow">Help build the next chapter</div>
+          <h2 class="section-title">Give, volunteer, partner, or stay connected.</h2>
+          <p class="section-copy">Support helps turn the vision into practical housing, employment pathways, supplies, transportation, and direct participant assistance.</p>
+          <a class="button button-primary" href="https://www.paypal.com/donate/?hosted_button_id=7B33SKHE49TPA" target="_blank" rel="noopener noreferrer">Open PayPal donation page</a>
+          <div class="impact-list">
+            <div class="impact"><b>Give</b><span>Support housing development, participant needs, transportation, training, and program operations.</span></div>
+            <div class="impact"><b>Hire</b><span>Become an employment partner willing to create a real second-chance opportunity.</span></div>
+            <div class="impact"><b>Serve</b><span>Volunteer skills, mentorship, supplies, professional services, or community connections.</span></div>
           </div>
         </div>
-      </aside>
+
+        <div class="forms">
+          <form class="form-card js-form" action="https://formspree.io/f/xaykldzw" method="post" data-success="You’re on the update list. Thank you for joining us.">
+            <h3>Get ministry updates</h3>
+            <p>Receive progress, opportunities, and urgent needs. You can unsubscribe at any time.</p>
+            <input type="hidden" name="form_type" value="newsletter_signup">
+            <input type="hidden" name="_subject" value="New Broken Growth email subscriber">
+            <div class="field"><label for="subscriber-email">Email address</label><input id="subscriber-email" type="email" name="email" autocomplete="email" required></div>
+            <div class="consent">By subscribing, you agree to receive email updates from Broken Growth Ministries. We do not sell contact information.</div>
+            <button class="button button-dark" type="submit">Subscribe</button>
+            <div class="status" role="status" aria-live="polite"></div>
+          </form>
+
+          <form class="form-card js-form" action="https://formspree.io/f/xaykldzw" method="post" data-success="Your message was sent. We’ll respond as soon as we can.">
+            <h3>Volunteer or partner</h3>
+            <p>Tell us how you would like to help or what kind of support you need.</p>
+            <input type="hidden" name="form_type" value="contact_request">
+            <input type="hidden" name="_subject" value="New Broken Growth website contact">
+            <div class="form-grid">
+              <div class="field"><label for="name">Name</label><input id="name" type="text" name="name" autocomplete="name" required></div>
+              <div class="field"><label for="email">Email</label><input id="email" type="email" name="email" autocomplete="email" required></div>
+            </div>
+            <div class="field"><label for="message">Message</label><textarea id="message" name="message" required placeholder="How would you like to connect?"></textarea></div>
+            <button class="button button-dark" type="submit">Send message</button>
+            <div class="status" role="status" aria-live="polite"></div>
+            <div class="contact-direct">Or email <a href="mailto:BrokenGrowthMinistry7@proton.me">BrokenGrowthMinistry7@proton.me</a>.</div>
+          </form>
+        </div>
+      </div>
     </section>
   </main>
 
-  <section id="work" class="section">
-    <div class="container">
-      <h2 class="section-title">What we actually do on the ground</h2>
-      <p class="section-sub">
-        This isn’t a big organization. There are no giant events or polished campaigns. It’s simple, steady work with people
-        who are trying to get their feet under them again after homelessness, addiction, or time behind bars.
-      </p>
-      <div class="grid-3">
-        <article class="card">
-          <h3>Basic survival needs</h3>
-          <small>"I’m hungry, I’m cold, I’m tired."</small>
-          <p>
-            Hot food, water, clean shirts, socks, hygiene items. When your basic needs are met, it gets a lot easier to make the next right decision.
-          </p>
-          <div class="pill-row">
-            <span class="pill">Food &amp; water</span>
-            <span class="pill">Clothing</span>
-            <span class="pill">Hygiene</span>
-          </div>
-        </article>
-        <article class="card">
-          <h3>Honest, human connection</h3>
-          <small>No judgment, no performance.</small>
-          <p>
-            Some of the most important work is just listening and telling the truth. I’ve lived a lot of what I’m hearing.
-            That honesty opens doors that religion-by-lecture never will.
-          </p>
-          <div class="pill-row">
-            <span class="pill">One-on-one talks</span>
-            <span class="pill">Street outreach</span>
-            <span class="pill">Prayer if asked</span>
-          </div>
-        </article>
-        <article class="card">
-          <h3>Next steps &amp; stability</h3>
-          <small>"What do I do now?"</small>
-          <p>
-            We help people take practical next steps: connecting to resources, pointing toward shelter, support groups, and
-            places where they’re not alone in the fight.
-          </p>
-          <div class="pill-row">
-            <span class="pill">Shelter &amp; help</span>
-            <span class="pill">Recovery support</span>
-            <span class="pill">Follow-up</span>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="story" class="section alt">
-    <div class="container">
-      <h2 class="section-title">A bit of my story</h2>
-      <div class="story-grid">
-        <div>
-          <p class="tiny-label">FROM BROKEN TO GROWING</p>
-          <div class="quote-block">
-            <em>
-              "I didn’t start this as a project. I started it because I remember exactly what it feels like to stand on a sidewalk
-              with nowhere to go, carrying a plastic bag with everything you own."
-            </em>
-          </div>
-          <p>
-            My name is Tim. I’ve been the guy people walk past. I’ve done time. I’ve slept outside. I’ve tried to rebuild my life
-            with almost nothing. The only reason I’m still here is because a few people chose to see me as a human being and not a problem.
-          </p>
-          <p>
-            Broken Growth Ministries was born out of that. I don’t promise miracles. I promise to show up, tell the truth, and put
-            whatever support comes in directly into the lives of people who are where I used to be.
-          </p>
-          <div class="timeline">
-            <div class="timeline-entry">
-              <strong>2024</strong>
-              First meals handed out on the streets of Pensacola.
-            </div>
-            <div class="timeline-entry">
-              <strong>2025</strong>
-              Clothing, hygiene kits, and regular check-ins with people sleeping rough.
-            </div>
-            <div class="timeline-entry">
-              <strong>Next</strong>
-              Building steadier support so fewer people fall straight back through the cracks.
-            </div>
-          </div>
-        </div>
-        <aside>
-          <p class="tiny-label">WHY THIS MINISTRY EXISTS</p>
-          <p style="font-size:0.9rem; color:#d1d5db; margin-bottom:0.6rem;">
-            Faith is part of my story, but I don’t hit anyone over the head with it. I try to live it out with
-            hot food, clean clothes, an open ear, and a willingness to stand beside people in rough seasons.
-          </p>
-          <p style="font-size:0.9rem; color:#cbd5f5;">
-            If you feel any pull reading this, you can read more or choose to support the work directly through the page below.
-          </p>
-          <div style="margin-top:1rem;">
-            <a class="btn-primary"
-               href="https://www.paypal.com/donate/?hosted_button_id=7B33SKHE49TPA"
-               target="_blank" rel="noopener">
-              Open PayPal Donation Page
-            </a>
-          </div>
-          <div class="metric-row">
-            <span>
-              <strong>Direct support</strong>
-              No big overhead. Gifts go into real needs.
-            </span>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <section id="impact" class="section">
-    <div class="container">
-      <h2 class="section-title">What your support turns into</h2>
-      <p class="section-sub">
-        Every contribution, large or small, becomes very simple things on the street. There’s no fancy structure here-just a
-        small ministry trying to hold the line for people who are close to giving up.
-      </p>
-      <div class="impact-grid">
-        <div class="impact-item">
-          <strong>$5</strong>
-          A simple meal kit and water for someone who hasn’t eaten today.
-        </div>
-        <div class="impact-item">
-          <strong>$10</strong>
-          Hygiene kit: soap, wipes, toothbrush, basics that restore dignity.
-        </div>
-        <div class="impact-item">
-          <strong>$25</strong>
-          A week of steady check-ins, food, and help for one person.
-        </div>
-        <div class="impact-item">
-          <strong>$40</strong>
-          Cold-weather gear or a small survival pack for someone sleeping outside.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="testimonials" class="section alt">
-    <div class="container">
-      <h2 class="section-title">Voices from the margins</h2>
-      <p class="section-sub">
-        Names and details are changed to protect privacy, but the stories are real. These are the kinds of moments your support helps create.
-      </p>
-      <div class="testimonials">
-        <div class="testimonial">
-          <em>"I met Pastor Tim when I had nothing but a backpack. He listened. No sermon, just real talk. That night was the first time I felt seen in a long time."</em>
-          <span>- J., rebuilding after jail</span>
-        </div>
-        <div class="testimonial">
-          <em>"I was sure I’d be back inside within a month. Someone handed me a plate of food and told me my story wasn’t over yet. That stuck with me."</em>
-          <span>- M., recently homeless</span>
-        </div>
-        <div class="testimonial">
-          <em>"It’s not big, but it’s consistent. When you’re out here, knowing someone will show up again next week matters more than you’d think."</em>
-          <span>- L., living on the street</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <footer>
     <div class="container footer-grid">
-      <div>
-        <strong>Broken Growth Ministries</strong><br>
-        Pensacola, Florida - outreach, meals, clothing, and practical support.
-        <div class="scripture">
-          "And do not forget to do good and to share with others…" - Hebrews 13:16
-        </div>
-      </div>
-      <div>
-        <div>Contact: <a href="mailto:BrokenGrowthMinistry7@proton.me">BrokenGrowthMinistry7@proton.me</a></div>
-        <div class="mono">PayPal: Broken Growth Ministries</div>
-        <div class="mono">Donation link: paypal.com/donate/?hosted_button_id=7B33SKHE49TPA</div>
-      </div>
-      <div>
-        <span class="mono">Built to be simple, honest, and transparent.</span>
-      </div>
+      <div><strong>Broken Growth Ministries</strong><br>Pensacola, Florida • Serving Escambia County</div>
+      <div class="legal">© <span id="year"></span> BrokenGrowthMinistries, Inc. Florida document N26000002310. Contact: <a href="mailto:BrokenGrowthMinistry7@proton.me">BrokenGrowthMinistry7@proton.me</a></div>
     </div>
   </footer>
 
-</div>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.querySelectorAll('.js-form').forEach(function(form){
+      form.addEventListener('submit', async function(event){
+        event.preventDefault();
+        var button=form.querySelector('button[type="submit"]');
+        var status=form.querySelector('.status');
+        var original=button.textContent;
+        button.disabled=true; button.textContent='Sending…'; status.className='status'; status.textContent='';
+        try{
+          var response=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
+          if(!response.ok) throw new Error('Submission failed');
+          form.reset(); status.className='status ok'; status.textContent=form.dataset.success;
+        }catch(error){
+          status.className='status error'; status.innerHTML='We could not send this right now. Please email <a href="mailto:BrokenGrowthMinistry7@proton.me">BrokenGrowthMinistry7@proton.me</a>.';
+        }finally{button.disabled=false; button.textContent=original;}
+      });
+    });
+  </script>
 </body>
 </html>
